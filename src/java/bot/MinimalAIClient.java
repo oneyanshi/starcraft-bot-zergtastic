@@ -85,8 +85,6 @@ public class MinimalAIClient implements BWAPIEventListener {
 		//Draw the terrain information
 		bwapi.getMap().drawTerrainData((bwapi));
 
-
-
 		// Collect minerals
 		for(Unit unit : bwapi.getMyUnits()) {
 			if(unit.getType() == UnitTypes.Zerg_Drone) {
@@ -108,18 +106,18 @@ public class MinimalAIClient implements BWAPIEventListener {
 
 		//Build a spawning pool (200 minerals, 80 secs)
 		if(bwapi.getSelf().getMinerals() >= 200 && poolDrone == null) {
-			for(Unit unit : bwapi.getMyUnits()){
-				if(unit.getType() == UnitTypes.Zerg_Drone) {
+			for(Unit unit : bwapi.getMyUnits()) {
+				if (unit.getType() == UnitTypes.Zerg_Drone) {
 					poolDrone = unit;
 					break;
 				}
 			}
 
-			//Where to build the pool though?
-
+			/** If I want to figure out how to place spawning pools,
+			 * I would put them where? Right next to the minerals? A few feet
+			 * away? Look it up later. */
+			
 		}
-
-
 	}
 
 	@Override
