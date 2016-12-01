@@ -1,0 +1,9 @@
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+.project
+.classpath
+.jardesc
