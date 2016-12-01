@@ -4,6 +4,9 @@
 *.exe
 *.o
 *.so
-.project
-.classpath
-.jardesc
+*.project
+*.classpath
+*.jardesc
+*.xml
+*.iml
+*.jbtwa
