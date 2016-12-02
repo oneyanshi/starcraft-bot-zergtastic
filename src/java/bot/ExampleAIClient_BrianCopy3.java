@@ -210,6 +210,27 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 			}
 		}
 
+		// Make all drones collect minerals if we don't have an extractor
+		for (Unit unit : bwapi.getMyUnits()) {
+			if (unit.getType() == UnitTypes.Zerg_Drone) {
+				// You can use referential equality for units, too
+				if (unit.isIdle() && unit != poolDrone && unit != creepDrone1 && unit != extractorDrone && unit != gasDrone1 ) {
+					for (Unit minerals : bwapi.getNeutralUnits()) {
+						if (minerals.getType().isMineralField()
+								&& !claimedMinerals.contains(minerals)) {
+							double distance = unit.getDistance(minerals);
+
+							if (distance < 300) {
+								unit.rightClick(minerals, false);
+								claimedMinerals.add(minerals);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// If we do have an extractor, then assign gasDrone1 and gasDone2 and assign
 		for (Unit unit : bwapi.getMyUnits()) {
 			if (unit.getType() == UnitTypes.Zerg_Extractor) {
@@ -231,27 +252,6 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 				else if(gasDrone1.isIdle() && gasDrone1 != poolDrone && gasDrone1 != creepDrone1 && gasDrone1 != extractorDrone) {
 					gasDrone1.rightClick(extractors, false);
 
-				}
-			}
-		}
-
-		// Make all drones collect minerals if we don't have an extractor
-		for (Unit unit : bwapi.getMyUnits()) {
-			if (unit.getType() == UnitTypes.Zerg_Drone) {
-				// You can use referential equality for units, too
-				if (unit.isIdle() && unit != poolDrone && unit != creepDrone1 && unit != extractorDrone && unit != gasDrone1 ) {
-					for (Unit minerals : bwapi.getNeutralUnits()) {
-						if (minerals.getType().isMineralField()
-								&& !claimedMinerals.contains(minerals)) {
-							double distance = unit.getDistance(minerals);
-
-							if (distance < 300) {
-								unit.rightClick(minerals, false);
-								claimedMinerals.add(minerals);
-								break;
-							}
-						}
-					}
 				}
 			}
 		}
