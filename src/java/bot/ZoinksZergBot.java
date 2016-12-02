@@ -11,13 +11,9 @@ import jnibwapi.types.UnitType.UnitTypes;
 import jnibwapi.types.UpgradeType;
 import jnibwapi.types.UpgradeType.UpgradeTypes;
 import jnibwapi.util.BWColor;
-import java.util.*;
-import java.lang.*;
-import java.util.Collections;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-
-import static java.util.Collections.max;
 
 /**
  * Example Java AI Client using JNI-BWAPI.
@@ -27,7 +23,7 @@ import static java.util.Collections.max;
  * Note: the agent often gets stuck when attempting to build the spawning pool. It works best on
  * maps where the overlord spawns with plenty of free space around it.
  */
-public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
+public class ZoinksZergBot implements BWAPIEventListener {
 
 	/** reference to JNI-BWAPI */
 	private final JNIBWAPI bwapi;
@@ -73,13 +69,13 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 	 * Create a Java AI.
 	 */
 	public static void main(String[] args) {
-		new ExampleAIClient_BrianCopy3();
+		new ZoinksZergBot();
 	}
 
 	/**
 	 * Instantiates the JNI-BWAPI interface and connects to BWAPI.
 	 */
-	public ExampleAIClient_BrianCopy3() {
+	public ZoinksZergBot() {
 		bwapi = new JNIBWAPI(this, true);
 		bwapi.start();
 	}
