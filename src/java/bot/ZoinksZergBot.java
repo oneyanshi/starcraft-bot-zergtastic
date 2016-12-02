@@ -101,7 +101,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
 		// reset agent state
 		claimedMinerals.clear();
-		morphedDrone = false;
 		poolDrone = null;
 		extractorDrone = null;
 		creepDrone1 = null;
@@ -167,6 +166,8 @@ public class ZoinksZergBot implements BWAPIEventListener {
 		// draw the terrain information
 		bwapi.getMap().drawTerrainData(bwapi);
 
+		spawnDrone();
+
 		// build a spawning pool
 		if (bwapi.getSelf().getMinerals() >= 200 && poolDrone == null) {
 			for (Unit unit : bwapi.getMyUnits()) {
@@ -200,18 +201,14 @@ public class ZoinksZergBot implements BWAPIEventListener {
 			poolDrone.build(psSpawningPool.get(indexOfMin), UnitTypes.Zerg_Spawning_Pool);
 		}
 
-/*		// spawn a drone
-		for (Unit unit : bwapi.getMyUnits()) {
-			// Note you can use referential equality
-			if (unit.getType() == UnitTypes.Zerg_Larva) {
-				if (bwapi.getSelf().getMinerals() >= 50 && !morphedDrone) {
-					unit.morph(UnitTypes.Zerg_Drone);
-					morphedDrone = true;
-				}
-			}
-		}*/
+		//while spawning pool is being built
+		for(Unit unit : bwapi.getMyUnits()) {
+			if (unit.getType() == UnitTypes.Zerg_Spawning_Pool && unit.isBeingConstructed()) {
 
-		// If we do have an extractor, then assign gasDrone1 and gasDone2 and assign
+			}
+		}
+
+		/*// If we do have an extractor, then assign gasDrone1 and gasDone2 and assign
 		for (Unit unit : bwapi.getMyUnits()) {
 			if (unit.getType() == UnitTypes.Zerg_Extractor && unit.isCompleted()) {
 				for (Unit drones : bwapi.getMyUnits()) {
@@ -233,7 +230,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
 				}
 			}
-		}
+		}*/
 
 		// Make all drones collect minerals if we don't have an extractor
 		for (Unit unit : bwapi.getMyUnits()) {
@@ -432,8 +429,22 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
 
 */
+
 	}
-	
+
+	public void spawnDrone() {
+		// spawn a drone
+		for (Unit unit : bwapi.getMyUnits()) {
+			// Note you can use referential equality
+			if (unit.getType() == UnitTypes.Zerg_Larva) {
+				if (bwapi.getSelf().getMinerals() >= 50 && !morphedDrone) {
+					unit.morph(UnitTypes.Zerg_Drone);
+					morphedDrone = true;
+				}
+			}
+		}
+	}
+
 	@Override
 	public void keyPressed(int keyCode) {}
 	@Override
