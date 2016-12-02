@@ -34,10 +34,21 @@ If the game does not end at that point, we continue with our plan of constructin
 ## Build Orders 
 Our build order can also be found in this [Google Doc](https://docs.google.com/document/d/1e05FzKy5A5DllCp2OfijMiIUobjpTRM2mPlKQ5jJYNk/edit). 
 
-Generally speaking, the build order we follow in the beginning is what is known as a *5 Pool*. 
+Generally speaking, the build order we follow in the beginning is what is known as a *5 Pool*. This name comes from when the spawing pool is built, when there is both 5 control (unit population) and the requisite resources are available.
 
-+ **START:**
-+ 4/9: Given
+There are 4 drones provided at the start of the game, starting the control value at 4/9. 
+Immediately build a 5th drone, while gathering minerals toward the 200 necessary to build a spawning pool. 
+When 200 minerals is available, use one drone to build a spawning pool, the necessary building to create zerglings. This brings control to 4/9.
+While this building is being constructed, have the 4 other drones continue gathering minerals. This should allow for two additional drones to be spawned in the time it takes for the spawning pool to finish. The reason for these two drones and the drone at the beginning is so that if the rush fails, there are enough drones available to continue effectively building economy. After these drones, control should be 6/9.
+Immediately when the spawining pool is finished, use the three available larvae at the hatchery to create 6 zerglings. Control should be 9/9, puting it at its current max. 
+When there are enough minerals and an available larva, spawn another overlord while the zerglings are being made. This increases the control limit, to create more units. 
+After the zerglings hatch, immediately send them to the enemy base. This will take some time.
+When the overlord spawns, and there is 100 minerals and 2 larvae available, start on 4 additional zerglings. These will be the reinforcements for the initial 6, in an attempt to solidify the initial rush into a victory. 
+When the first 6 zerglings arrive, focus on the enemy starting units if they have any, like other zerglings, marines, or zealots, depending on the race. Following that, attack the initial offensive buildings, like spawning pools, barracks', or gateways. Afterwards, focus on their worker units and kill all of them to make sure they dont produce anything else. At this point, victory has been achieved, and there is only their remaining buildings to destroy. 
+
+In the case that the rush fails, there is a back up plan. This is the reason we used a 5 pool, as opposed to a 4 pool. We can transition into another build from here, hopefully either with an advantage or equal footing because of the rush. 
+
+
 + 5/9: Build another drone 
 + 4/9: Build a spawning pool 
 + 5/9: Build a drone while the spawning pool is building 
