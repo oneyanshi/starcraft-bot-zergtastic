@@ -192,6 +192,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
         gatherMinerals();
         gatherGas();
+        spawnDrone();
         buildSpawningPool();
 
         for(Unit unit : bwapi.getMyUnits()) {
@@ -203,24 +204,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         }
 
         buildHydraliskDen();
-
-/*
-		// build Hydralisk Den
-		if (bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone == null) {
-			for (Unit unit : bwapi.getMyUnits()) {
-				if (unit.getType() == UnitTypes.Zerg_Drone) {
-					hydraliskDenDrone = unit;
-					break;
-				}
-			}
-
-			// build the hydralisk den on the overlord cuz idk how to build elsewhere
-			for (Unit unit : bwapi.getMyUnits()) {
-				if (unit.getType() == UnitTypes.Zerg_Overlord) {
-					hydraliskDenDrone.build(unit.getPosition(), UnitTypes.Zerg_Hydralisk_Den);
-				}
-			}
-		}*/
+        spawnDrone();
 
 /*
 		// attack move toward an enemy
@@ -229,23 +213,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
 				for (Unit enemy : bwapi.getEnemyUnits()) {
 					unit.attack(enemy.getPosition(), false);
 					break;
-				}
-			}
-		}
-
-		// build Hydralisk Den
-		if (bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone == null) {
-			for (Unit unit : bwapi.getMyUnits()) {
-				if (unit.getType() == UnitTypes.Zerg_Drone) {
-					hydraliskDenDrone = unit;
-					break;
-				}
-			}
-
-			// build the hydralisk den on the overlord cuz idk how to build elsewhere
-			for (Unit unit : bwapi.getMyUnits()) {
-				if (unit.getType() == UnitTypes.Zerg_Overlord) {
-					hydraliskDenDrone.build(unit.getPosition(), UnitTypes.Zerg_Hydralisk_Den);
 				}
 			}
 		}
@@ -310,7 +277,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
     public void spawnDrone() {
         // spawn a drone
         for (Unit unit : bwapi.getMyUnits()) {
-            // Note you can use referential equality
             if (unit.getType() == UnitTypes.Zerg_Larva) {
                 if (bwapi.getSelf().getMinerals() >= 50) {
                     unit.morph(UnitTypes.Zerg_Drone);
@@ -354,7 +320,19 @@ public class ZoinksZergBot implements BWAPIEventListener {
     }
 
     public void spawnMutalisk(){
+        for(Unit unit: bwapi.getMyUnits()) {
+            if(unit.getType() == UnitTypes.Zerg_Larva){
+                if(bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 100) {
+                    unit.morph(UnitTypes.Zerg_Mutalisk);
+                }
+            }
+        break;
+        }
     }
+
+    /**
+     * Unit movement (attack)
+     */
 
     /**
      * Creating buildings and structures

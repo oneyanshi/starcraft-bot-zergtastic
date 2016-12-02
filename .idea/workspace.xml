@@ -24,17 +24,18 @@
       <file leaf-file-name="ZoinksZergBot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
+            <state relative-caret-position="254">
+              <caret line="198" column="64" selection-start-line="198" selection-start-column="64" selection-end-line="198" selection-end-column="64" />
               <folding>
                 <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
-                <element signature="method#spawnDrone#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#spawnZerglings#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#spawnOverlord#0;class#ZoinksZergBot#0" expanded="false" />
-                <element signature="method#spawnHydralisk#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#spawnMutalisk#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#buildSpawningPool#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#buildExtractor#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#buildCreepColony#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#buildHydraliskDen#0;class#ZoinksZergBot#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -445,7 +446,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="110" y="24" width="1139" height="986" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -456,7 +457,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31030577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21662246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21662246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -482,7 +483,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -783,17 +784,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
+        <state relative-caret-position="254">
+          <caret line="198" column="64" selection-start-line="198" selection-start-column="64" selection-end-line="198" selection-end-column="64" />
           <folding>
             <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
-            <element signature="method#spawnDrone#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#spawnZerglings#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#spawnOverlord#0;class#ZoinksZergBot#0" expanded="false" />
-            <element signature="method#spawnHydralisk#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#spawnMutalisk#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#buildSpawningPool#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#buildExtractor#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#buildCreepColony#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#buildHydraliskDen#0;class#ZoinksZergBot#0" expanded="false" />
           </folding>
         </state>
       </provider>
