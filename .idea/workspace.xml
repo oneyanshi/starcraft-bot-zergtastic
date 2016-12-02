@@ -24,8 +24,8 @@
       <file leaf-file-name="ZoinksZergBot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+            <state relative-caret-position="400">
+              <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
               <folding>
                 <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
                 <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
@@ -780,8 +780,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+        <state relative-caret-position="400">
+          <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
           <folding>
             <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
             <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
