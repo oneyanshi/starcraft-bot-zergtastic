@@ -24,9 +24,28 @@
       <file leaf-file-name="ZoinksZergBot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="191" column="52" selection-start-line="191" selection-start-column="52" selection-end-line="191" selection-end-column="52" />
-              <folding />
+            <state relative-caret-position="456">
+              <caret line="159" column="7" selection-start-line="159" selection-start-column="7" selection-end-line="159" selection-end-column="7" />
+              <folding>
+                <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#buildSpawningPool#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#buildExtractor#0;class#ZoinksZergBot#0" expanded="false" />
+                <element signature="method#buildCreepColony#0;class#ZoinksZergBot#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnitType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/types/UnitType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="621" column="19" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="19" />
+              <folding>
+                <element signature="e#23493#23494#0" expanded="true" />
+                <element signature="e#23515#23516#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,7 +63,7 @@
       <file leaf-file-name="ExampleAIClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/bot/ExampleAIClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2669">
+            <state relative-caret-position="1218">
               <caret line="172" column="21" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
               <folding />
             </state>
@@ -74,9 +93,12 @@
       <file leaf-file-name="Unit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="845" column="19" selection-start-line="845" selection-start-column="19" selection-end-line="845" selection-end-column="19" />
+              <folding>
+                <element signature="e#19046#19047#0" expanded="true" />
+                <element signature="e#19076#19077#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +127,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="91" />
-    <option name="y" value="8" />
+    <option name="x" value="166" />
+    <option name="y" value="9" />
     <option name="width" value="1168" />
     <option name="height" value="916" />
   </component>
@@ -220,7 +242,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="isBuilding&#9;PSI&#9;JAVA://jnibwapi.types.UnitType#isBuilding" />
+    <property name="SearchEverywhereHistoryKey" value="isBeing&#9;PSI&#9;JAVA://jnibwapi.Unit#isBeingConstructed&#10;isBuilding&#9;PSI&#9;JAVA://jnibwapi.types.UnitType#isBuilding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -419,7 +441,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="8" width="1168" height="916" extended-state="0" />
+    <frame x="166" y="9" width="1168" height="916" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -456,7 +478,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -500,7 +524,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#19046#19047#0" expanded="true" />
+            <element signature="e#19076#19077#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -540,7 +567,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#19046#19047#0" expanded="true" />
+            <element signature="e#19076#19077#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -572,7 +602,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#19046#19047#0" expanded="true" />
+            <element signature="e#19076#19077#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,7 +645,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#19046#19047#0" expanded="true" />
+            <element signature="e#19076#19077#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -663,22 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/bot/ExampleAIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="172" column="21" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/bot/MinimalAIClient_Test.java" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -720,17 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/types/UnitType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="621" column="19" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="19" />
-          <folding>
-            <element signature="e#23493#23494#0" expanded="true" />
-            <element signature="e#23515#23516#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/JNIBWAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -739,11 +748,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/types/UnitType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="621" column="19" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="19" />
+          <folding>
+            <element signature="e#23493#23494#0" expanded="true" />
+            <element signature="e#23515#23516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/jnibwapi/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="845" column="19" selection-start-line="845" selection-start-column="19" selection-end-line="845" selection-end-column="19" />
+          <folding>
+            <element signature="e#19046#19047#0" expanded="true" />
+            <element signature="e#19076#19077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/bot/ExampleAIClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="172" column="21" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/bot/ZoinksZergBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="191" column="52" selection-start-line="191" selection-start-column="52" selection-end-line="191" selection-end-column="52" />
-          <folding />
+        <state relative-caret-position="456">
+          <caret line="159" column="7" selection-start-line="159" selection-start-column="7" selection-end-line="159" selection-end-column="7" />
+          <folding>
+            <element signature="method#gatherMinerals#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#gatherGas#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#buildSpawningPool#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#buildExtractor#0;class#ZoinksZergBot#0" expanded="false" />
+            <element signature="method#buildCreepColony#0;class#ZoinksZergBot#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
