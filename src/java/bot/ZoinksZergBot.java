@@ -194,6 +194,16 @@ public class ZoinksZergBot implements BWAPIEventListener {
         gatherGas();
         buildSpawningPool();
 
+        for(Unit unit : bwapi.getMyUnits()) {
+            if(unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
+                if(unit.isCompleted()){
+                    buildExtractor();
+                }
+            }
+        }
+
+        buildHydraliskDen();
+
 /*
 		// build Hydralisk Den
 		if (bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone == null) {
@@ -239,22 +249,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
 				}
 			}
 		}
-
-		// spawn hydralisks
-		else if (bwapi.getSelf().getMinerals() >= 75 && bwapi.getSelf().getGas() >= 25) {
-			for (Unit unit : bwapi.getMyUnits()) {
-				if (unit.getType() == UnitTypes.Zerg_Hydralisk_Den && unit.isCompleted()) {
-					for (Unit larva : bwapi.getMyUnits()) {
-						if (larva.getType() == UnitTypes.Zerg_Larva) {
-							larva.morph(UnitTypes.Zerg_Hydralisk);
-						}
-					}
-				}
-			}
-		}
-
-		// Turn the creep colony into a sunken colony
-
 */
 
     }
@@ -322,6 +316,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
                     unit.morph(UnitTypes.Zerg_Drone);
                 }
             }
+        break;
         }
     }
 
@@ -348,16 +343,17 @@ public class ZoinksZergBot implements BWAPIEventListener {
     }
 
     public void spawnHydralisk(){
-
+        for(Unit unit: bwapi.getMyUnits()) {
+            if (unit.getType() == UnitTypes.Zerg_Larva) {
+                if(bwapi.getSelf().getMinerals() >= 75 && bwapi.getSelf().getGas() >= 25){
+                    unit.morph(UnitTypes.Zerg_Hydralisk);
+                }
+            }
+        break;
+        }
     }
 
     public void spawnMutalisk(){
-
-    }
-
-    public void spawnLurkers(){
-
-
     }
 
     /**
@@ -455,8 +451,34 @@ public class ZoinksZergBot implements BWAPIEventListener {
     }
 
     public void buildHydraliskDen(){
-
-
+        if(bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone==null) {
+            for(Unit unit : bwapi.getMyUnits()) {
+                if(unit.getType() == UnitTypes.Zerg_Drone) {
+                    hydraliskDenDrone = unit;
+                    break;
+                }
+            }
+            //Create list of buildable locations for a Hydralisk Den
+            ArrayList<Position> psHydraliskDen = new ArrayList<>();
+            for (int i = 1; i < ps.size(); i++) {
+                if (bwapi.canBuildHere(ps.get(i), UnitTypes.Zerg_Hydralisk_Den, false)) {
+                    psHydraliskDen.add(ps.get(i));
+                }
+            }
+            double [] psHydraliskDenDistances = new double[psHydraliskDen.size()];
+            for(int i =1; i< psHydraliskDen.size(); i++) {
+                psHydraliskDenDistances[i] = psHydraliskDen.get(i).getApproxPDistance(mainHatchery.getPosition());
+            }
+            double max = psHydraliskDenDistances[1];
+            int indexofMax = 1;
+            for(int i =1; i < psHydraliskDen.size(); i++) {
+                if(psHydraliskDenDistances[i] > max){
+                    max = psHydraliskDenDistances[i];
+                    indexofMax = i;
+                }
+            }
+            hydraliskDenDrone.build(psHydraliskDen.get(indexofMax), UnitTypes.Zerg_Hydralisk_Den);
+        }
     }
 
 
