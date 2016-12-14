@@ -649,7 +649,9 @@ public class UnitType {
 				|| this == UnitTypes.Resource_Mineral_Field_Type_2
 				|| this == UnitTypes.Resource_Mineral_Field_Type_3;
 	}
-	
+	public boolean isVespeneGeyser() {
+		return this == UnitTypes.Resource_Vespene_Geyser;
+	}
 	@Override
 	public String toString() {
 		return getName() + " (" + getID() + ")";

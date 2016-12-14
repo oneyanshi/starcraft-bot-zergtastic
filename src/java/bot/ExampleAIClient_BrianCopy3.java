@@ -56,6 +56,10 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 	private Unit hydraliskDenDrone;
 
 	/** mainHatchery unit for home location */
+	private Unit gasDrone1;
+	private Unit gasDrone2;
+
+	/** mainHatchery unit for home location */
 	private Unit mainHatchery;
 
 	/** Buildable positions */
@@ -108,6 +112,8 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 		creepDrone2 = null;
 		hydraliskDenDrone = null;
 		supplyCap = 0;
+		gasDrone1 = null;
+		gasDrone2 = null;
 		for (Unit u : bwapi.getMyUnits()) {
 			if (u.getType() == UnitTypes.Zerg_Hatchery) {
 				mainHatchery = u;
@@ -158,9 +164,9 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 		}*/
 
 		for (int i = 1 ; i<ps.size(); i++) {
-			bwapi.drawCircle(ps.get(i), 5, BWColor.Orange, true, false);
+			//bwapi.drawCircle(ps.get(i), 5, BWColor.Orange, true, false);
 			if (bwapi.canBuildHere(ps.get(i),UnitTypes.Zerg_Creep_Colony,true)) {
-				bwapi.drawCircle(ps.get(i), 5, BWColor.Green, true, false);
+				//bwapi.drawCircle(ps.get(i), 5, BWColor.Green, true, false);
 			}
 		}
 
@@ -204,11 +210,31 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 			}
 		}
 
-		// collect minerals
+		// If we do have an extractor, then assign gasDrone1 and gasDone2 and assign
+		for (Unit unit : bwapi.getMyUnits()) {
+			if (unit.getType() == UnitTypes.Zerg_Extractor) {
+				for (Unit drones : bwapi.getMyUnits()) {
+					if (drones.getType() == UnitTypes.Zerg_Drone) {
+						gasDrone1 = drones;
+						break;
+					}
+				}
+			}
+		}
+
+		for (Unit extractors : bwapi.getMyUnits()) {
+			if (extractors.getType() == UnitTypes.Zerg_Extractor) {
+				bwapi.drawCircle(extractors.getPosition(), 5, BWColor.Blue, true, false);
+				gasDrone1.rightClick(extractors, false);
+				break;
+			}
+		}
+
+		// Make all drones collect minerals if we don't have an extractor
 		for (Unit unit : bwapi.getMyUnits()) {
 			if (unit.getType() == UnitTypes.Zerg_Drone) {
 				// You can use referential equality for units, too
-				if (unit.isIdle() && unit != poolDrone) {
+				if (unit.isIdle() && unit != poolDrone && unit != creepDrone1 && unit != extractorDrone && unit != gasDrone1 ) {
 					for (Unit minerals : bwapi.getNeutralUnits()) {
 						if (minerals.getType().isMineralField()
 								&& !claimedMinerals.contains(minerals)) {
@@ -257,8 +283,6 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 			// build cc at the max distance from the base that is buildable
 			creepDrone1.build(psCreepColony.get(indexOfMax), UnitTypes.Zerg_Creep_Colony);
 			}
-
-
 
 		// build a spawning pool
 		if (bwapi.getSelf().getMinerals() >= 200 && poolDrone == null) {
@@ -312,6 +336,33 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 			// build extractor at the one location we can
 			extractorDrone.build(psExtractor, UnitTypes.Zerg_Extractor);
 		}
+
+		// Send drones to collect gas at the extractor
+
+
+
+		// build Hydralisk Den
+		if (bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone == null) {
+			for (Unit unit : bwapi.getMyUnits()) {
+				if (unit.getType() == UnitTypes.Zerg_Drone) {
+					hydraliskDenDrone = unit;
+					break;
+				}
+			}
+
+			// build the hydralisk den on the overlord cuz idk how to build elsewhere
+			for (Unit unit : bwapi.getMyUnits()) {
+				if (unit.getType() == UnitTypes.Zerg_Overlord) {
+					hydraliskDenDrone.build(unit.getPosition(), UnitTypes.Zerg_Hydralisk_Den);
+				}
+			}
+		}
+
+
+
+
+
+
 
 /*
 			// spawn overlords
