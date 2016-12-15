@@ -33,19 +33,30 @@ Our build order can also be in this [Google Doc](https://docs.google.com/documen
 Generally speaking, the build order we follow in the beginning is what is known as a *5 Pool*. 
 
 START: 4/9 
+
 5/9: Build another drone 
+
 4/9: Build a spawning pool 
+
 5/9: Build a drone while the spawning pool is building 
+
 6/9: Build another drone while the spawning pool is building 
+
 9/9: Use 3 larvae to build 6 zerglings to rush the enemy base and attack workers/buildings to weaken their economy 
 
 IF ENDGAME: 
+
 WIN. 
 
 IF NOT ENDGAME, CONTINUE: 
+
 9/17: Build Overlord 2 to increase control (100 minerals+, have larvae) 
+
 11/17: Make 4 Zerglings for reinforcements for the first wave 
+
 12/17: Build a drone  
+
 11/17: Build extractor 
+
 10/17: Build a drone 
 
