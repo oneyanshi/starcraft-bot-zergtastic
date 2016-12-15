@@ -17,9 +17,9 @@ import java.util.HashSet;
 
 /**
  * Example Java AI Client using JNI-BWAPI.
- * 
+ *
  * Executes a 5-pool rush and cheats using perfect information.
- * 
+ *
  * Note: the agent often gets stuck when attempting to build the spawning pool. It works best on
  * maps where the overlord spawns with plenty of free space around it.
  */
@@ -166,7 +166,11 @@ public class ZoinksZergBot implements BWAPIEventListener {
 		// draw the terrain information
 		bwapi.getMap().drawTerrainData(bwapi);
 
-		spawnDrone();
+		//spawnDrone();
+
+		spawnOverlord();
+
+		//spawnZergling();
 
 		// build a spawning pool
 		if (bwapi.getSelf().getMinerals() >= 200 && poolDrone == null) {
@@ -433,17 +437,44 @@ public class ZoinksZergBot implements BWAPIEventListener {
 	}
 
 	public void spawnDrone() {
-		// spawn a drone
+		// spawn a drone guy
 		for (Unit unit : bwapi.getMyUnits()) {
 			// Note you can use referential equality
 			if (unit.getType() == UnitTypes.Zerg_Larva) {
-				if (bwapi.getSelf().getMinerals() >= 50 && !morphedDrone) {
+				if (bwapi.getSelf().getMinerals() >= 50) {
 					unit.morph(UnitTypes.Zerg_Drone);
-					morphedDrone = true;
 				}
 			}
+		break;
 		}
 	}
+
+	public void spawnZergling() {
+		// spawn a (2) zergy guy(s)!!
+		for (Unit unit : bwapi.getMyUnits()) {
+			// Note you can use referential equality
+			if (unit.getType() == UnitTypes.Zerg_Larva) {
+				if (bwapi.getSelf().getMinerals() >= 50) {
+					unit.morph(UnitTypes.Zerg_Zergling);
+				}
+			}
+		break;
+		}
+	}
+
+	public void spawnOverlord() {
+		// spawn a Overlordy guy
+		for (Unit unit : bwapi.getMyUnits()) {
+			// Note you can use referential equality
+			if (unit.getType() == UnitTypes.Zerg_Larva) {
+				if (bwapi.getSelf().getMinerals() >= 100) {
+					unit.morph(UnitTypes.Zerg_Overlord);
+				}
+			}
+		break;
+		}
+	}
+
 
 	@Override
 	public void keyPressed(int keyCode) {}
