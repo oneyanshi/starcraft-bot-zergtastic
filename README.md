@@ -7,7 +7,7 @@ This is the final project for CSC-568 Artificial Intellgience. It is a collectiv
 ### Bot Requirements 
 + Our bot should be able to gather resources for both minerals and vespene gas. 
 + Ability to place buildings for construction. 
-+ Executation of at least one build order. 
++ Execution of at least one build order. 
 + Ability to construct worker and combat units. 
 + Micromanagement of units. 
 + Being able to build and use tier 1 units for each faction: 
