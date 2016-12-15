@@ -32,7 +32,7 @@ If the game does not end at that point, we continue with our plan of constructin
 
 
 ## Build Orders 
-Our build order can also be in this [Google Doc](https://docs.google.com/document/d/1e05FzKy5A5DllCp2OfijMiIUobjpTRM2mPlKQ5jJYNk/edit). 
+Our build order can also be found in this [Google Doc](https://docs.google.com/document/d/1e05FzKy5A5DllCp2OfijMiIUobjpTRM2mPlKQ5jJYNk/edit). 
 
 Generally speaking, the build order we follow in the beginning is what is known as a *5 Pool*. 
 
