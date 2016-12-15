@@ -22,7 +22,11 @@ This is the final project for CSC-568 Artificial Intellgience. It is a collectiv
  + Technical summary of your argent, including a system diagram, explanation of all major classes, and a time-based guide as to what the agent does over time (also in the README) 
 
 ## High Level Overview 
-Our bot is set to carry out the 5-Pool build order, so that we can take advantage of the early-game potential and advantages that Zergs have. 
+Our goal was to implement a simple decision tree with weights to allow the bot to make decisions based on the current environment as enabled by Perfect Information™.
+
+Our bot is capable of gathering minerals, extracting gas, constructing buildings, and spawning workers and attack units. Our bot is set to carry out the 5-Pool build order in the beginning, so that we can take advantage of the early-game potential and advantages that Zergs have. The build order is explained below in a later section. Our goal with the 5-Pool is weaken the opponent's economy by primarily attacking their workers and their buildings--this is also known as a Zerg Rush. A 5-Pool is not as risky as a 4-Pool, in that we are capable of keeping our own economy balanced and we still have drones gathering minerals and obtaining needed resources for later advancements. 
+
+If the game does not end at that point, we continue with our plan of constructing buildings and advancing through to our tech tree. 
 
 ## Class Breakdown 
 
