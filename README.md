@@ -27,3 +27,4 @@ This is the final project for CSC-568 Artificial Intellgience. It is a collectiv
 ## Class Breakdown 
 
 ## Build Orders 
+Our build order can also be in this [Google Doc](https://docs.google.com/document/d/1e05FzKy5A5DllCp2OfijMiIUobjpTRM2mPlKQ5jJYNk/edit). 
