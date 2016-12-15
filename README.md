@@ -19,7 +19,7 @@ This is the final project for CSC-568 Artificial Intellgience. It is a collectiv
 + All deliverables should be available on Github. Required: 
  + Clean, documented code with appropriate class decomposition. 
 + High-level overview of approach (~500 words in the README in the base repository) 
-+ Technical summary of your argent, including a system diagram, explanation of all major classes, and a time-based guide as to waht the agent does over time (also in the README) 
+ + Technical summary of your argent, including a system diagram, explanation of all major classes, and a time-based guide as to waht the agent does over time (also in the README) 
 
 
 ## High Level Overview 
