@@ -44,7 +44,7 @@ Generally speaking, the build order we follow in the beginning is what is known 
 + 6/9: Build another drone while the spawning pool is building 
 + 9/9: Use 3 larvae to build 6 zerglings to rush the enemy base and attack workers/buildings to weaken their economy 
 
-+ **IF ENDGAME:** 
++ **IF ENDGAME:**
 + WIN. 
 
 + **IF NOT ENDGAME, CONTINUE:** 
