@@ -9,8 +9,8 @@ The full GitHub Repo is available here https://github.com/oneyanshi/starcraft-bo
 We gather both minerals and gas
 We are able to place buildings using a concentric square to find locations
 We are able to build a Spawning Pool, Extractor, and a Hydralisk Den
-Our Drones are constructed at multiple times during the game and Zerglings are constructed 
-Finally there are attack orders that specify the correct targets 
+Our Drones are constructed at multiple times during the game and Zerglings are constructed as well
+We are able to grad one Drone and micro manage it's resource gathering so it switches to gas
 Our full order is below but it progresses from Zerglings to Hydralisks to mutalisks
 We also have fully commented code and believe our README is up to snuff
 
