@@ -89,6 +89,12 @@ public class ZoinksZergBot implements BWAPIEventListener {
     int homeX;
     int homeY;
 
+    /** lol is this where this goes????
+     *
+     * makes a boolean that helps with spawning things well
+     */
+    public boolean isDrownSpawn = false;
+
     /**
      * Create a Java AI.
      */
@@ -206,6 +212,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         buildHydraliskDen();
         spawnDrone();
 
+
 /*
 		// attack move toward an enemy
 		for (Unit unit : bwapi.getMyUnits()) {
@@ -275,11 +282,13 @@ public class ZoinksZergBot implements BWAPIEventListener {
      * Spawning units
      **/
     public void spawnDrone() {
+
         // spawn a drone
         for (Unit unit : bwapi.getMyUnits()) {
             if (unit.getType() == UnitTypes.Zerg_Larva) {
-                if (bwapi.getSelf().getMinerals() >= 50) {
+                if (bwapi.getSelf().getMinerals() >= 50 && isDrownSpawn == false) {
                     unit.morph(UnitTypes.Zerg_Drone);
+                    isDrownSpawn = true;
                 }
             }
         break;
