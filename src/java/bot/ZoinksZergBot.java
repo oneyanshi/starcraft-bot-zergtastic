@@ -125,8 +125,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         bwapi.enablePerfectInformation();
         bwapi.setGameSpeed(0);
 
-        // reset agent state
-        claimedMinerals.clear();
+        /*Things we would use later*/
         poolDrone = null;
         extractorDrone = null;
         creepDrone1 = null;
@@ -195,50 +194,37 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
         gatherMinerals();
         gatherGas();
+        buildSpawningPool();
 
-        if (step < 1 && bwapi.getSelf().getMinerals() >= 50) {
-            System.out.println("Spawned a drone.");
-            System.out.println("This is step " + Integer.toString(step));
-            spawnDrone();
-            step++;
-            System.out.println("This is step: " + Integer.toString(step));
-        }
-
-        if (0 < step && step < 2 && bwapi.getSelf().getMinerals() >= 200) {
-            System.out.println("This is step: " + Integer.toString(step));
-            buildSpawningPool();
-            System.out.println("Build a spawning pool.");
-            step++;
-            System.out.println("This is step: " + Integer.toString(step));
-
-        } else if (1 < step && step < 4 && bwapi.getSelf().getMinerals() >= 50) {
-            for (Unit unit : bwapi.getMyUnits()) {
-                if (unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
-                    if (unit.isBeingConstructed()) {
-                        spawnDrone();
-                        step++;
+        for (Unit unit : bwapi.getMyUnits()) {
+            if (unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
+                if (unit.isCompleted()) {
+                    if(bwapi.getSelf().getMinerals() > 200) {
+                        spawnZerglings();
+                        spawnOverlord();
                     }
+                    else if (bwapi.getSelf().getMinerals() < 40) {
+                        spawnDrone();
+                    }
+                    buildExtractor();
                 }
             }
         }
-        else if (step == 4 && bwapi.getSelf().getMinerals() >= 150) {
-            spawnZerglings();
+
+
+
+        // attack move toward an enemy
+        for (Unit unit : bwapi.getMyUnits()) {
+            if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
+                for (Unit enemy : bwapi.getEnemyUnits()) {
+                    unit.attack(enemy.getPosition(), false);
+                    break;
+                }
+            }
         }
+
     }
 
-/*
-		// attack move toward an enemy
-		for (Unit unit : bwapi.getMyUnits()) {
-			if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
-				for (Unit enemy : bwapi.getEnemyUnits()) {
-					unit.attack(enemy.getPosition(), false);
-					break;
-				}
-			}
-		}
-*/
-
-    
 
     /**
      * Essential tasks
@@ -302,7 +288,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
                     unit.morph(UnitTypes.Zerg_Drone);
                 }
             }
-        break;
         }
     }
 
@@ -313,9 +298,9 @@ public class ZoinksZergBot implements BWAPIEventListener {
                     unit.morph(UnitTypes.Zerg_Zergling);
                 }
             }
-       break;
         }
     }
+
 
     public void spawnOverlord(){
         for(Unit unit : bwapi.getMyUnits()) {
