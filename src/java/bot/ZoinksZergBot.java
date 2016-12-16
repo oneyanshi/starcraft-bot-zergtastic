@@ -203,22 +203,24 @@ public class ZoinksZergBot implements BWAPIEventListener {
                 } else if (bwapi.getSelf().getMinerals() <= 50) {
                     spawnDrone();
                 }
-                if (unit.isCompleted() && bwapi.getSelf().getMinerals() <= 60) {
+                if (unit.isCompleted() && bwapi.getSelf().getMinerals() >= 60) {
                     buildExtractor();
-                } else if (unit.isCompleted() && bwapi.getSelf().getMinerals() <= 100) {
-                    spawnOverlord();
-                    buildHydraliskDen();
+                } else if (unit.isCompleted() && bwapi.getSelf().getMinerals() >= 100) {
+                    if (bwapi.getSelf().getSupplyUsed() + 2 >= bwapi.getSelf().getSupplyTotal()
+                            && bwapi.getSelf().getSupplyTotal() > supplyCap) {
+                        spawnOverlord();
+                        buildHydraliskDen();
+                    }
                 }
                 for (Unit hydraliskDen : bwapi.getMyUnits()) {
                     if (unit.getType() == UnitTypes.Zerg_Hydralisk_Den) {
-                        if (hydraliskDen.isCompleted() && bwapi.getSelf().getMinerals() <= 200) {
+                        if (hydraliskDen.isCompleted() && bwapi.getSelf().getMinerals() >= 200) {
                             spawnHydralisk();
                         }
                     }
                 }
             }
         }
-
 
         // attack move toward an enemy
         for (Unit unit : bwapi.getMyUnits()) {
@@ -244,6 +246,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
     /**
      * Essential tasks
      */
+
     public void gatherMinerals() {
         for (Unit unit : bwapi.getMyUnits()) {
             if (unit.getType() == UnitTypes.Zerg_Drone) {
