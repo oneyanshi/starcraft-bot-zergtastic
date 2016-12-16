@@ -3,17 +3,14 @@ Zoinks is a Starcraft Broodwar AI bot.
 
 This is the final project for CSC-568 Artificial Intellgience. It is a collective group project by Brian DiZio, Yan Shi, Andreas Elterich, Ethan Poll, Maryeliz Kelleher, Deana Fedaie, and Ryan Plucknett. 
 
-## Project requirements 
-### Bot Requirements 
-+ Our bot should be able to gather resources for both minerals and vespene gas. 
-+ Ability to place buildings for construction. 
-+ Execution of at least one build order. 
-+ Ability to construct worker and combat units. 
-+ Micromanagement of units. 
-+ Being able to build and use tier 1 units for each faction: 
- + Zerg: Drones, zerglings, and hydralisks 
-+ Being able to build and use some tier 2 units for each faction: 
- + Zerg: Lurkers OR Mutalisks 
+## Point Justification
+We gather both minerals and gas
+We are able to place buildings using a concentric square to find locations
+We are able to build a Spawning Pool, Extractor, and a Hydralisk Den
+Our Drones are constructed at multiple times during the game and Zerglings are constructed 
+Finally there are attack orders that specify the correct targets 
+Our full order is below but it progresses from Zerglings to Hydralisks to mutalisks
+
  
 ### Deliverable Requirements 
 + All deliverables should be available on Github. Required: 
