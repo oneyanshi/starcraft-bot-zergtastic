@@ -17,6 +17,9 @@ import jnibwapi.util.BWColor;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+
+//memes memes memes!!!!
+
 /**
  * Example Java AI Client using JNI-BWAPI.
  * <p>
