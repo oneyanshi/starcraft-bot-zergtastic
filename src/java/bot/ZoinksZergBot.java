@@ -198,32 +198,32 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
         for (Unit unit : bwapi.getMyUnits()) {
             if (unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
-                if (unit.isCompleted()) {
-                    if(bwapi.getSelf().getMinerals() > 200) {
-                        spawnZerglings();
-                        spawnOverlord();
-                    }
-                    else if (bwapi.getSelf().getMinerals() < 40) {
-                        spawnDrone();
-                    }
+                if (unit.isCompleted() && bwapi.getSelf().getMinerals() >= 200) {
+                    spawnZerglings();
+                } else if (bwapi.getSelf().getMinerals() <= 50) {
+                    spawnDrone();
+                }
+                if (unit.isCompleted() && bwapi.getSelf().getMinerals() <= 60) {
                     buildExtractor();
+                }else if(unit.isCompleted() && bwapi.getSelf().getMinerals() <= 100) {
+                    spawnOverlord();
+                    buildHydraliskDen();
                 }
             }
         }
 
 
-
-        // attack move toward an enemy
-        for (Unit unit : bwapi.getMyUnits()) {
-            if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
-                for (Unit enemy : bwapi.getEnemyUnits()) {
-                    unit.attack(enemy.getPosition(), false);
-                    break;
+            // attack move toward an enemy
+            for (Unit unit : bwapi.getMyUnits()) {
+                if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
+                    for (Unit enemy : bwapi.getEnemyUnits()) {
+                        unit.attack(enemy.getPosition(), false);
+                        break;
+                    }
                 }
             }
-        }
 
-    }
+        }
 
 
     /**
