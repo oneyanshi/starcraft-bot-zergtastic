@@ -1,7 +1,5 @@
 package bot;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import jnibwapi.BWAPIEventListener;
 import jnibwapi.JNIBWAPI;
 import jnibwapi.Position;
@@ -16,9 +14,6 @@ import jnibwapi.util.BWColor;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-
-
-//memes memes memes!!!!
 
 /**
  * Example Java AI Client using JNI-BWAPI.
