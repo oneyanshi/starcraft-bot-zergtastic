@@ -110,7 +110,7 @@ public class ZoinksZergBot_Crude implements BWAPIEventListener {
 	 * Create a Java AI.
 	 */
 	public static void main(String[] args) {
-		new ExampleAIClient_BrianCopy3();
+		new ZoinksZergBot_Crude();
 	}
 
 	/**
