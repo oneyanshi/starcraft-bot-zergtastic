@@ -3,6 +3,8 @@ Zoinks is a Starcraft Broodwar AI bot.
 
 This is the final project for CSC-568 Artificial Intellgience. It is a collective group project by Brian DiZio, Yan Shi, Andreas Elterich, Ethan Poll, Maryeliz Kelleher, Deana Fedaie, and Ryan Plucknett. 
 
+The full GitHub Repo is available here https://github.com/oneyanshi/starcraft-bot-zergtastic
+
 ## Point Justification
 We gather both minerals and gas
 We are able to place buildings using a concentric square to find locations
@@ -10,13 +12,8 @@ We are able to build a Spawning Pool, Extractor, and a Hydralisk Den
 Our Drones are constructed at multiple times during the game and Zerglings are constructed 
 Finally there are attack orders that specify the correct targets 
 Our full order is below but it progresses from Zerglings to Hydralisks to mutalisks
+We also have fully commented code and believe our README is up to snuff
 
- 
-### Deliverable Requirements 
-+ All deliverables should be available on Github. Required: 
- + Clean, documented code with appropriate class decomposition. 
-+ High-level overview of approach (~500 words in the README in the base repository) 
- + Technical summary of your argent, including a system diagram, explanation of all major classes, and a time-based guide as to what the agent does over time (also in the README) 
 
 ## High Level Overview 
 Our goal was to implement a simple decision tree with weights to allow the bot to make decisions based on the current environment as enabled by having perfect information. 
@@ -25,7 +22,7 @@ Our bot is capable of gathering minerals, extracting gas, constructing buildings
 
 The Zerg specific resource we need to account for is control. Zerglings, Drones, and buildings consume control and overlords produce it. Initially we have 4 control, the fastest version of a rush strategy, a 4-pool goes right into a spawning pool as soon as enough minerals are generated. A 5-Pool is not as risky as a 4-Pool, in that we can keep our own economy balanced by maintaining a drone gathering minerals and obtaining needed resources as we’re spawning in Zerglings. As soon as we have six they attack. We use the extra resources to spawn another Overlord and four additional Zerglings to reinforce our initial attack. During this early game period we also work towards an extractor. 
 
-If the game does not end at that point, we do a tech switch and begin moving to an economy strategy. If we went with the 4-pool this shift would be much more challenging but because we went with the slightly more conservative strategy and will be carefully managing our control this will work. After the extractor is done we’re able to upgrade the spawning pool to a Hydralisk den. We hope to outpace our opponent in reaching our 2nd tier unit because of the damage we inflict early game, even if we’re not able to effectively eliminate them. Hydralisks have the advantage of being more versatile and less micro focused than Zerg’s other 2nd tier units. By the mid game we expect to attack with Zerglings and Hydralisks. The Hydralisks will allow us to break through the intensive defenses we would expect to be built to counter our earlier rush. Then we hope to finish the game before reaching late game when Zergs have less of an advantage.
+If the game does not end at that point, we do a tech switch and begin moving to an economy strategy. If we went with the 4-pool this shift would be much more challenging but because we went with the slightly more conservative strategy and will be carefully managing our control this will work. After the extractor is done we're able to upgrade the spawning pool to a Hydralisk den. We hope to outpace our opponent in reaching our 2nd tier unit because of the damage we inflict early game, even if we're not able to effectively eliminate them. Hydralisks have the advantage of being more versatile and less micro focused than Zerg's other 2nd tier units. By the mid game we expect to attack with Zerglings and Hydralisks. The Hydralisks will allow us to break through the intensive defenses we would expect to be built to counter our earlier rush. Then we hope to finish the game before reaching late game when Zergs have less of an advantage.
 
  
 ## Major Classes
