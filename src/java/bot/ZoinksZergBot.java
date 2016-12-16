@@ -205,13 +205,12 @@ public class ZoinksZergBot implements BWAPIEventListener {
                 }
                 if (unit.isCompleted() && bwapi.getSelf().getMinerals() >= 60) {
                     buildExtractor();
-                } else if (unit.isCompleted() && bwapi.getSelf().getMinerals() >= 100) {
-                    if (bwapi.getSelf().getSupplyUsed() + 2 >= bwapi.getSelf().getSupplyTotal()
-                            && bwapi.getSelf().getSupplyTotal() > supplyCap) {
+                } else if (unit.isCompleted()) {
+                    if (bwapi.getSelf().getSupplyUsed() + 1 >= bwapi.getSelf().getSupplyTotal() && bwapi.getSelf().getSupplyTotal() > supplyCap) {
                         spawnOverlord();
-                        buildHydraliskDen();
                     }
                 }
+                else if(unit.isCompleted() && bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >=25)
                 for (Unit hydraliskDen : bwapi.getMyUnits()) {
                     if (unit.getType() == UnitTypes.Zerg_Hydralisk_Den) {
                         if (hydraliskDen.isCompleted() && bwapi.getSelf().getMinerals() >= 200) {
