@@ -3,7 +3,7 @@ Zoinks is a Starcraft Broodwar AI bot.
 
 This is the final project for CSC-568 Artificial Intellgience. It is a collective group project by Brian DiZio, Yan Shi, Andreas Elterich, Ethan Poll, Maryeliz Kelleher, Deana Fedaie, and Ryan Plucknett. 
 
-The full GitHub Repo is available here https://github.com/oneyanshi/starcraft-bot-zergtastic
+The full GitHub Repo is available here https://github.com/oneyanshi/starcraft-bot-zergtastic.git
 
 ## Point Justification
 We gather both minerals and gas
