@@ -1,5 +1,7 @@
 package bot;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import jnibwapi.BWAPIEventListener;
 import jnibwapi.JNIBWAPI;
 import jnibwapi.Position;
@@ -89,6 +91,8 @@ public class ZoinksZergBot implements BWAPIEventListener {
     int homeX;
     int homeY;
 
+    int step;
+
     /**
      * Create a Java AI.
      */
@@ -133,6 +137,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         supplyCap = 0;
         gasDrone1 = null;
         gasDrone2 = null;
+        step = 0;
         for (Unit u : bwapi.getMyUnits()) {
             if (u.getType() == UnitTypes.Zerg_Hatchery) {
                 mainHatchery = u;
@@ -192,19 +197,36 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
         gatherMinerals();
         gatherGas();
-        spawnDrone();
-        buildSpawningPool();
 
-        for(Unit unit : bwapi.getMyUnits()) {
-            if(unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
-                if(unit.isCompleted()){
-                    buildExtractor();
+        if (step < 1 && bwapi.getSelf().getMinerals() >= 50) {
+            System.out.println("Spawned a drone.");
+            System.out.println("This is step " + Integer.toString(step));
+            spawnDrone();
+            step++;
+            System.out.println("This is step: " + Integer.toString(step));
+        }
+
+        if (0 < step && step < 2 && bwapi.getSelf().getMinerals() >= 200) {
+            System.out.println("This is step: " + Integer.toString(step));
+            buildSpawningPool();
+            System.out.println("Build a spawning pool.");
+            step++;
+            System.out.println("This is step: " + Integer.toString(step));
+
+        } else if (1 < step && step < 4 && bwapi.getSelf().getMinerals() >= 50) {
+            for (Unit unit : bwapi.getMyUnits()) {
+                if (unit.getType() == UnitTypes.Zerg_Spawning_Pool) {
+                    if (unit.isBeingConstructed()) {
+                        spawnDrone();
+                        step++;
+                    }
                 }
             }
         }
-
-        buildHydraliskDen();
-        spawnDrone();
+        else if (step == 4 && bwapi.getSelf().getMinerals() >= 150) {
+            spawnZerglings();
+        }
+    }
 
 /*
 		// attack move toward an enemy
@@ -218,7 +240,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
 		}
 */
 
-    }
+    
 
     /**
      * Essential tasks
