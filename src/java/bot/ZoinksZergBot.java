@@ -1,11 +1,9 @@
 package bot;
 
-import jnibwapi.BWAPIEventListener;
-import jnibwapi.JNIBWAPI;
-import jnibwapi.Position;
-import jnibwapi.Unit;
+import jnibwapi.*;
 import jnibwapi.types.TechType;
 import jnibwapi.types.TechType.TechTypes;
+import jnibwapi.types.UnitCommandType;
 import jnibwapi.types.UnitType;
 import jnibwapi.types.UnitType.UnitTypes;
 import jnibwapi.types.UpgradeType;
@@ -193,9 +191,12 @@ public class ZoinksZergBot implements BWAPIEventListener {
         gatherMinerals();
         gatherGas();
         buildSpawningPool();
+        spawnZerglings();
+        KILL();
+        }
 
 /*
-		// build Hydralisk Den
+        // build Hydralisk Den
 		if (bwapi.getSelf().getMinerals() >= 100 && bwapi.getSelf().getGas() >= 50 && hydraliskDenDrone == null) {
 			for (Unit unit : bwapi.getMyUnits()) {
 				if (unit.getType() == UnitTypes.Zerg_Drone) {
@@ -213,7 +214,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
 		}*/
 
 /*
-		// attack move toward an enemy
+        // attack move toward an enemy
 		for (Unit unit : bwapi.getMyUnits()) {
 			if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
 				for (Unit enemy : bwapi.getEnemyUnits()) {
@@ -257,7 +258,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
 
 */
 
-    }
+
 
     /**
      * Essential tasks
@@ -325,6 +326,22 @@ public class ZoinksZergBot implements BWAPIEventListener {
         }
     }
 
+    //COMMAND GUYS
+
+    public void KILL() {
+        // attack move toward an enemy
+        for (Unit unit : bwapi.getMyUnits()) {
+            if (unit.getType() == UnitTypes.Zerg_Zergling && unit.isIdle()) {
+                for (Unit enemy : bwapi.getEnemyUnits()) {
+                    unit.attack(enemy.getPosition(), false);
+//                    break;
+                }
+            }
+        }
+    }
+
+
+
     public void spawnZerglings() {
         for (Unit unit : bwapi.getMyUnits()) {
             if (unit.getType() == UnitTypes.Zerg_Larva) {
@@ -332,13 +349,13 @@ public class ZoinksZergBot implements BWAPIEventListener {
                     unit.morph(UnitTypes.Zerg_Zergling);
                 }
             }
-       break;
+//            break;
         }
     }
 
-    public void spawnOverlord(){
-        for(Unit unit : bwapi.getMyUnits()) {
-            if(unit.getType() == UnitTypes.Zerg_Larva) {
+    public void spawnOverlord() {
+        for (Unit unit : bwapi.getMyUnits()) {
+            if (unit.getType() == UnitTypes.Zerg_Larva) {
                 if (bwapi.getSelf().getMinerals() >= 50) {
                     unit.morph(UnitTypes.Zerg_Overlord);
 
@@ -347,15 +364,15 @@ public class ZoinksZergBot implements BWAPIEventListener {
         }
     }
 
-    public void spawnHydralisk(){
+    public void spawnHydralisk() {
 
     }
 
-    public void spawnMutalisk(){
+    public void spawnMutalisk() {
 
     }
 
-    public void spawnLurkers(){
+    public void spawnLurkers() {
 
 
     }
@@ -419,7 +436,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         extractorDrone.build(psExtractor, UnitTypes.Zerg_Extractor);
     }
 
-    public void buildCreepColony(){
+    public void buildCreepColony() {
         // build creep colony at the farthest away spot
         if (bwapi.getSelf().getMinerals() >= 75 && creepDrone1 == null) {
             for (Unit unit : bwapi.getMyUnits()) {
@@ -436,17 +453,17 @@ public class ZoinksZergBot implements BWAPIEventListener {
                 }
             }
             // Create list of distances of these buildable locations
-            double [] psCreepColonyDistances = new double[psCreepColony.size()];
-            for (int i = 1; i<psCreepColony.size();i++){
-                psCreepColonyDistances[i]= psCreepColony.get(i).getApproxPDistance(mainHatchery.getPosition());
+            double[] psCreepColonyDistances = new double[psCreepColony.size()];
+            for (int i = 1; i < psCreepColony.size(); i++) {
+                psCreepColonyDistances[i] = psCreepColony.get(i).getApproxPDistance(mainHatchery.getPosition());
             }
             // find the maximum distance and store its index
             double max = psCreepColonyDistances[1];
             int indexOfMax = 1;
-            for (int i = 1; i<psCreepColony.size();i++){
-                if (psCreepColonyDistances[i]>max){
+            for (int i = 1; i < psCreepColony.size(); i++) {
+                if (psCreepColonyDistances[i] > max) {
                     max = psCreepColonyDistances[i];
-                    indexOfMax=i;
+                    indexOfMax = i;
                 }
             }
             // build cc at the max distance from the base that is buildable
@@ -454,11 +471,10 @@ public class ZoinksZergBot implements BWAPIEventListener {
         }
     }
 
-    public void buildHydraliskDen(){
+    public void buildHydraliskDen() {
 
 
     }
-
 
 
     @Override
