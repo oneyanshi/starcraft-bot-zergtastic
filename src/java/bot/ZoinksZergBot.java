@@ -18,87 +18,31 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 
-//memes memes memes!!!!
-
-/**
- * Example Java AI Client using JNI-BWAPI.
- * <p>
- * Executes a 5-pool rush and cheats using perfect information.
- * <p>
- * Note: the agent often gets stuck when attempting to build the spawning pool. It works best on
- * maps where the overlord spawns with plenty of free space around it.
- */
 public class ZoinksZergBot implements BWAPIEventListener {
-
-    /**
-     * reference to JNI-BWAPI
-     */
     private final JNIBWAPI bwapi;
-
-    /**
-     * used for mineral splits
-     */
     private final HashSet<Unit> claimedMinerals = new HashSet<>();
-
-    /**
-     * have drone 5 been morphed
-     */
+    //nice units
     private Unit morphedDrone;
-
-    /**
-     * the drone that has been assigned to building a pool
-     */
     private Unit poolDrone;
-
-    /**
-     * when should the next overlord be spawned?
-     */
     private int supplyCap;
-
-    /**
-     * the drone that has been assigned to building an extractor
-     */
     private Unit extractorDrone;
-    private Position psExtractor;
-
-    /**
-     * the drone that has been assigned to building an extractor
-     */
     private Unit creepDrone1;
     private Unit creepDrone2;
-
-    /**
-     * the drone that has been assigned to building an extractor
-     */
     private Unit hydraliskDenDrone;
-
-    /**
-     * mainHatchery unit for home location
-     */
     private Unit gasDrone1;
     private Unit gasDrone2;
-
-    /**
-     * mainHatchery unit for home location
-     */
     private Unit mainHatchery;
 
-    /**
-     * Buildable positions
-     */
+    private Position psExtractor;
+    Position psHatchery;
     private ArrayList<Position> ps;
-
-    /**
-     * Coordinates of home base
-     */
     int homeX;
     int homeY;
-
     int step;
 
-    /**
-     * Create a Java AI.
-     */
+    //buildings
+    boolean
+
     public static void main(String[] args) {
         new ZoinksZergBot();
     }
@@ -111,25 +55,16 @@ public class ZoinksZergBot implements BWAPIEventListener {
         bwapi.start();
     }
 
-    /**
-     * Connection to BWAPI established.
-     */
     @Override
     public void connected() {
         System.out.println("Connected");
     }
-
-    /**
-     * Called at the beginning of a game.
-     */
     @Override
     public void matchStart() {
         System.out.println("Game Started");
-
         bwapi.enableUserInput();
         bwapi.enablePerfectInformation();
         bwapi.setGameSpeed(0);
-
         // reset agent state
         claimedMinerals.clear();
         poolDrone = null;
@@ -146,7 +81,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
                 mainHatchery = u;
             }
         }
-
         homeX = mainHatchery.getPosition().getPX();
         homeY = mainHatchery.getPosition().getPY();
         ps = new ArrayList<>();
@@ -162,10 +96,6 @@ public class ZoinksZergBot implements BWAPIEventListener {
             }
         }
     }
-
-    /**
-     * Called each game cycle.
-     */
     @Override
     public void matchFrame() {
         // print out some info about any upgrades or research happening
@@ -198,10 +128,18 @@ public class ZoinksZergBot implements BWAPIEventListener {
         // draw the terrain information
         bwapi.getMap().drawTerrainData(bwapi);
 
-        gatherMinerals();
-        gatherGas();
+        //ACTION LIST
+        int mineralAmount = bwapi.getSelf().getMinerals();
+        int gasAmount = bwapi.getSelf().getGas();
 
-        if (step < 1 && bwapi.getSelf().getMinerals() >= 50) {
+        gatherMinerals();
+        System.out.println("ONE COMPLETE");
+        gatherGas();
+        System.out.println("TWO COMPLETE");
+        spawnDrone();
+
+
+       /* if (step < 1 && bwapi.getSelf().getMinerals() >= 50) {
             System.out.println("Spawned a drone.");
             System.out.println("This is step " + Integer.toString(step));
             spawnDrone();
@@ -228,7 +166,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
         }
         else if (step == 4 && bwapi.getSelf().getMinerals() >= 150) {
             spawnZerglings();
-        }
+        }*/
     }
 
 /*
@@ -260,6 +198,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
                             if (distance < 300) {
                                 unit.rightClick(minerals, false);
                                 claimedMinerals.add(minerals);
+                                System.out.println("GATHERING_MINERALS");
                                 break;
                             }
                         }
@@ -288,6 +227,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
                     gasDrone1.stop(false);
                 } else if (gasDrone1.isIdle()) {
                     gasDrone1.rightClick(extractors, false);
+                    System.out.println("GATHERING_GAS");
 
                 }
             }
@@ -305,7 +245,8 @@ public class ZoinksZergBot implements BWAPIEventListener {
             if (unit.getType() == UnitTypes.Zerg_Larva) {
                 if (bwapi.getSelf().getMinerals() >= 50) {
                     unit.morph(UnitTypes.Zerg_Drone);
-                }
+                    System.out.println("DRONE_SPAWNED");
+            }
             }
         break;
         }
@@ -316,6 +257,7 @@ public class ZoinksZergBot implements BWAPIEventListener {
             if (unit.getType() == UnitTypes.Zerg_Larva) {
                 if (bwapi.getSelf().getMinerals() >= 50) {
                     unit.morph(UnitTypes.Zerg_Zergling);
+                    System.out.println("ZERGY_GUY_SPAWNED");
                 }
             }
        break;
