@@ -32,7 +32,7 @@ If the game does not end at that point, we do a tech switch and begin moving to 
 
  
 ## Major Classes
-We work mainly within the mainFrame(), creating methods if needed and when appropriate, though there are no major classes. 
+We work mainly within the mainFrame(), creating methods if needed and when appropriate. The main class is ZoinksZergBot.java, and similar files withiin the src > bot > java folder were test files in which we were figuring out the best build order or the best way to initialize a build order. 
 
 ## Build Orders 
 Our build order can also be found in this [Google Doc](https://docs.google.com/document/d/1e05FzKy5A5DllCp2OfijMiIUobjpTRM2mPlKQ5jJYNk/edit). 
