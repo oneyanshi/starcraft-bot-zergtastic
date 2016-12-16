@@ -27,7 +27,7 @@ import static java.util.Collections.max;
  * Note: the agent often gets stuck when attempting to build the spawning pool. It works best on
  * maps where the overlord spawns with plenty of free space around it.
  */
-public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
+public class ZoinksZergBot_Crude implements BWAPIEventListener {
 
 	/**
 	 * reference to JNI-BWAPI
@@ -116,7 +116,7 @@ public class ExampleAIClient_BrianCopy3 implements BWAPIEventListener {
 	/**
 	 * Instantiates the JNI-BWAPI interface and connects to BWAPI.
 	 */
-	public ExampleAIClient_BrianCopy3() {
+	public ZoinksZergBot_Crude() {
 		bwapi = new JNIBWAPI(this, true);
 		bwapi.start();
 	}
